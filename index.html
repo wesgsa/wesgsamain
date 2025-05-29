@@ -1,0 +1,115 @@
+<!DOCTTYPE:html>
+<html>
+  <head>
+    <title>은성이의 웹사이트</title>
+    <style>
+      .center{
+        
+      }
+    </style<!DOCTYPE html>
+<html>
+
+<head>
+    <title>은성이의 웹사이트</title>
+    <style>
+        body {
+            font-family : sans-serif;
+            margin:0;
+            padding:0;
+        }
+
+        header {
+            /*background-color: rgb(224, 224, 224);*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            padding: 0;
+        }
+
+        main {
+            padding:30px;
+            padding-top:120px;
+            align-items:flex-start;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        hr{
+            margin-top:30px;
+        }
+
+        .sepline {
+            border:none;
+            height:4px;
+            background-color:rgb(98, 98, 98);
+            margin:20px 0;
+            width:100%;
+            margin-bottom:0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="center">은성이의 웹사이트입니다!!</h1>
+        <hr class="sepline">
+    </header>
+
+    <main>
+        <div id="list"></div>
+        
+    </main>
+
+    <script>
+        container = document.getElementById("list");
+
+        class Data{
+            constructor(title,link,description){
+                this.title = title;
+                this.link = link;
+                this.description = description.replace(/\n/g,'<br>');
+            }
+        }
+
+        const datas = [
+            new Data("오목 대결하기","https://dxwes.github.io/wesgsa",
+                `이 사이트에 들어가시면 제가 직접 만든 오목 인공지능과 오목 대결을 하실 수 있습니다.
+                그러나 아직 그렇게 잘하지는 않습니다.
+                꼭 한 번 이겨보세요!`
+            ),
+            new Data("구글","https://google.com","그냥 구글입니다. \n 링크를 타고 들어가면 아주 평범한 구글 검색창이 나옵니다."),
+        ];
+
+        const data_length = datas.length;
+
+        for(let i=0;i<data_length;i++){
+            data = datas[i];
+            const eTitle = document.createElement('h1');
+            const eLink = document.createElement('a');
+            const eDescription = document.createElement('p');
+            const eLine = document.createElement('hr');
+
+            eTitle.textContent = data.title;
+            eLink.href = data.link
+            eLink.textContent = "들어가기";
+            eLink.target = '_blank'
+            eDescription.innerHTML = data.description;
+
+            container.appendChild(eTitle)
+            container.appendChild(eLink)
+            container.appendChild(eDescription)
+            container.appendChild(eLine)
+
+        }
+    </script>
+</body>
+
+</html>
+  </head>
+  
+</html>
